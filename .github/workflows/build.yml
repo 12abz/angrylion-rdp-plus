@@ -148,7 +148,7 @@ jobs:
           dir Release\*.dll
           copy Release\*.dll ..\pkg\
       - name: Upload artifact
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: angrylion-rdp-plus-${{ matrix.wintag }}-${{ matrix.method }}-${{ env.G_REV }}
           path: pkg/*
@@ -158,9 +158,9 @@ jobs:
     if: github.ref_name == 'master'
     needs: [Linux, Windows]
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - name: Download artifacts
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v4
         with:
           path: binaries
       - name: Get some tools
